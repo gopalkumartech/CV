@@ -1,0 +1,222 @@
+---
+title:     "Rolling Stock "
+subtitle:  Identifies the subtitle of the document.
+date:      27 Sept 2022	
+author:    PED/RS	
+institute: RDSO Lucknow	
+thanks: DG RDSO, MoR
+
+# beamerarticle: true
+# order:	Order for document when included in a website automatic sidebar menu.
+# resource-path: #List of paths to search for images and other resources
+
+#format: beamer
+format: 
+#  pptx:    # works ok
+#  revealjs:  # not worked
+  beamer: 
+    keep-tex: true
+    keep-md: false	
+    keep-ipynb: false
+    toc: true
+    toc-depth: 3
+#    shift-heading-level-by: -1
+#    top-level-division: part # default, section, chapter, or part  
+    #    toc-title: "Todays agenda points"
+    # slide-level: 1 # 1-6
+    lof: true
+    lot: true
+    number-sections: true #  even then class .unnumbered never numbered
+    number-depth: 2
+#    number-offset: [1,4]
+#    navigation: vertical #horizontal  # no # frame, vertical, horizontal
+    theme: PaloAlto #AnnArbor # Warsaw Rochester PaloAlto Marburg JuanLesPins Berkeley Copenhagen
+    colortheme: beaver #lily wolverine seahorse crane
+    incremental: true  
+#    theme: "AnnArbor"
+#    colortheme: "dolphin"
+    fonttheme: "structurebold"
+#    mainfont:
+#    monofont:  # sansfont:   #mathfont:
+#    fontsize:
+#    fontfamily:
+#    
+    cap-location: top # figure and table captions (top, bottom, or margin)
+    #innertheme:
+    #outertheme:
+    #themeoptions:
+    aspectratio: 169
+    # beamerarticle # Article from Beamer
+    # beameroption # \setbeameroption{} #  (a list).
+#    includes:
+#        in_header: nw_report_header.tex
+    institute: RDSO
+    author affiliations: RDSO
+    logo: RDSO_Logo1.jpg #flowery.png
+    titlegraphic: RDSO_Logo1.jpg #flowery.png dahlia.png
+    background-image: "RDSO_Logo1.jpg"
+    section-titles: true # false
+    fig-align: right # (default, left, right, or center)
+    fig-width: 4
+    fig-height: 3
+#
+#  - \AtBeginDocument{\title{MWE}\titleframe}    
+#  - \AtEndDocument{\begin{closingframe}lalala\end{closingframe}}
+#  - \makeatletter\beamer@ignorenonframefalse\makeatother  
+#classoption: "aspectratio=169"
+#bibliography: # single file or a list of files
+#csl:Citation Style Language file to use for formatting references.
+#cite-method: Method used to format citations (citeproc, natbib, or biblatex). 
+#links-as-notes: true # links to be printed as footnotes.
+abstract:	
+  Summary of document
+editor: visual
+---
+
+## Quarto
+
+\section{}
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+# The first level testing
+
+## Incremental also by this way
+
+::: incremental
+-   Eat spaghetti
+-   Drink wine
+:::
+
+::: nonincremental
+-   Eat spaghetti
+-   Drink wine
+:::
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Slide with a pause
+
+content before the pause
+
+. . .
+
+content after the pause
+
+## Multiple Columns
+
+use a native div container with class .columns, containing two or more div containers with class .column and a width attribute:
+
+::: columns
+::: {.column width="40%"}
+contents...
+:::
+
+::: {.column width="60%"}
+contents...
+:::
+:::
+
+## with optional align
+
+::: {.columns width="40%" align="center" totalwidth="8em"}
+::: {.column width="40%"}
+contents...
+:::
+
+::: {.column width="60%" align="bottom"}
+contents...
+:::
+:::
+
+# the first level notes
+
+## Code {.fragile}
+
+<!--   allowdisplaybreaks, allowframebreaks, b, c, t, environment, label, plain, shrink, standout, noframenumbering. --->
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Slide with speaker notes
+
+Slide content
+
+::: notes
+Speaker notes go here.
+:::
+
+# This is main para
+
+```{python , include=TRUE, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE}
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={"projection": "polar"})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+# other points in Julia
+
+```{julia}
+#| echo: false
+
+radius = 10
+using Markdown
+Markdown.parse(
+"""
+The radius of the circle is $radius.
+"""
+)
+```
+
+
+# Oher fu
+
+```{python}
+#| echo: true
+
+import matplotlib.pyplot as plt
+plt.plot([1,6,3,4])
+plt.show()
+```
+
+# Demo dd 
+For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+
+# latex toc

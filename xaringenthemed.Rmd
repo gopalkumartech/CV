@@ -1,0 +1,1120 @@
+---
+title: "Presentation Ninja"
+subtitle: "\u2694 <br/>with xaringan and xaringanthemer"  
+author: "Yihui Xie"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css:  ["footer-header.css", default, metropolis, metropolis-fonts] # 
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+# remotes::install_github("gadenbuie/xaringanthemer")
+library(xaringanthemer)
+solarized_dark(
+  code_font_family = "Fira Code",
+  code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css"
+)
+```
+
+---
+layout: true
+Traction Diesel
+<div class="my-header"> 
+<span> &emsp; Gopal Kumar  &emsp;   </span>      
+</div>  
+
+<div class="my-footer"><span>  Gopal Kumar    
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+Baroda House
+&emsp;&emsp;&emsp;&emsp;&emsp; `r Sys.time()` 
+&emsp;&emsp; '`r Sys.Date()`'
+Northern Railway  &emsp;&emsp;&emsp;
+`  Sys.Date() `
+
+</span></div> 
+---
+
+
+
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+
+???
+
+Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+
+---
+class: center, middle
+
+# xaringan
+
+### /ʃæ.'riŋ.ɡæn/
+
+---
+class: inverse, center, middle
+
+# Get Started
+
+Select theme
+"chocolate-fonts"  "chocolate"        "default-fonts"  "default"          "duke-blue"        "hygge-duke"   "hygge"            "kunoichi"         "lucy-fonts"    "lucy"             "metropolis-fonts" "metropolis"       "middlebury-fonts" "middlebury"       "ninjutsu"        "rladies-fonts"    "rladies"          "robot-fonts"     "robot"            "rutgers-fonts"    "rutgers"          "shinobi"          "tamu-fonts"       "tamu" "uo-fonts"         "uo" 
+---
+
+# Hello World
+
+Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
+
+```{r eval=FALSE, tidy=FALSE}
+# devtools::install_github("yihui/xaringan")
+```
+
+--
+
+You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rstudio/), but you do not have to.
+
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`;<sup>1</sup>
+
+---
+layout: true
+
+background-image: url(http://res.publicdomainfiles.com/pdf_view/171/13997409617132.jpg)
+background-size: cover
+
+<!--- outstanding  image background on all slides --->
+---
+
+
+
+
+
+--
+
+- Click the `Knit` button to compile it;
+
+--
+
+- or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
+
+.footnote[
+[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
+
+[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+]
+
+---
+background-image: url(`r xaringan:::karl`)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+# You only live once!
+
+---
+
+<!---
+layout: true
+
+background-image: url(r ::: honeycomb.jpg)
+background-size: cover
+
+---> 
+
+# Hello Ninja
+
+As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
+
+1. The [remark.js](https://remarkjs.com) library;
+
+1. The **xaringan** package;
+
+Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
+
+---
+
+
+<!--- If you want to insert a break slide, just set layout: false and reinitialize your layout afterwards:
+ --->
+---
+layout: false
+class: inverse, middle, center
+
+# Header of empty slide   
+## the second level heading
+test test this level
+<!--- wow the slide gets printed --->
+
+---
+
+# Loerm Ipsum
+
+Translation by H. Rackham:
+
+“But I must explain to you how all this mistaken idea of denouncing of a pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?”
+
+# Translation by H. Rackham:
+
+“At vero eos et accusamus et iusto odio dignissimos ducimus, qui "
+
+“On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammeled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.”
+
+# remark.js
+
+You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
+
+- create a new slide (Markdown syntax<sup>*</sup> and slide properties);
+
+- format a slide (e.g. text alignment);
+
+- configure the slideshow;
+
+- and use the presentation (keyboard shortcuts).
+
+It is important to be familiar with remark.js before you can understand the options in **xaringan**.
+
+.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
+
+---
+background-image: url(`r xaringan:::karl`)
+background-size: cover
+class: center, bottom, inverse
+
+# I was so happy to have discovered remark.js!
+
+---
+class: inverse, middle, center
+
+# Using xaringan
+.pull-left[
+```{r plot-label, eval=FALSE}
+# code chunk here
+library(ggplot2)
+ggplot(iris) + 
+  aes(Sepal.Length, 
+      Sepal.Width, 
+      color = Species) + 
+  geom_point()
+```
+]
+
+.pull-right[
+```{r plot-label-out, ref.label="plot-label", echo=FALSE}
+```
+]
+---
+
+# xaringan
+
+Provides an R Markdown output format `xaringan::moon_reader` as a wrapper for remark.js, and you can use it in the YAML metadata, e.g.
+
+```yaml
+---
+title: "A Cool Presentation"
+output:
+  xaringan::moon_reader
+    yolo: true
+    nature:
+      autoplay: 30000
+---
+```
+
+See the help page `?xaringan::moon_reader` for all possible options that you can use.
+
+---
+
+# remark.js vs xaringan
+
+Some differences between using remark.js (left) and using **xaringan** (right):
+
+.pull-left[
+1. Start with a boilerplate HTML file;
+
+1. Plain Markdown;
+
+1. Write JavaScript to autoplay slides;
+
+1. Manually configure MathJax;
+
+1. Highlight code with `*`;
+
+1. Edit Markdown source and refresh browser to see updated slides;
+]
+
+.pull-right[
+1. Start with an R Markdown document;
+
+1. R Markdown (can embed R/other code chunks);
+
+1. Provide an option `autoplay`;
+
+1. MathJax just works;<sup>*</sup>
+
+1. Highlight code with `{{}}`;
+
+1. The RStudio addin "Infinite Moon Reader" automatically refreshes slides on changes;
+]
+
+.footnote[[*] Not really. See next page.]
+
+---
+
+# Math Expressions
+
+You can write LaTeX math expressions inside a pair of dollar signs, e.g. &#36;\alpha+\beta$ renders $\alpha+\beta$. You can use the display style with double dollar signs:
+
+```
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+```
+
+$$\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$$
+
+Limitations:
+
+1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
+
+1. There should not be spaces after the opening `$` or before the closing `$`.
+
+1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
+
+---
+
+# R Code
+
+```{r comment='#'}
+# a boring regression
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
+dojutsu = c('地爆天星', '天照', '加具土命', '神威', '須佐能乎', '無限月読')
+grep('天', dojutsu, value = TRUE)
+```
+
+---
+
+# R Plots
+
+```{r cars, fig.height=4}
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+---
+
+# Tables
+
+If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+
+```{r}
+knitr::kable(head(iris), format = 'html')
+```
+
+---
+
+# HTML Widgets
+
+I have not thoroughly tested HTML widgets against **xaringan**. Some may work well, and some may not. It is a little tricky.
+
+Similarly, the Shiny mode (`runtime: shiny`) does not work. I might get these issues fixed in the future, but these are not of high priority to me. I never turn my presentation into a Shiny app. When I need to demonstrate more complicated examples, I just launch them separately. It is convenient to share slides with other people when they are plain HTML/JS applications.
+
+See the next page for two HTML widgets.
+
+---
+
+```{r out.width='100%', fig.height=6, eval=require('leaflet')}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
+```
+
+---
+
+```{r eval=require('DT'), tidy=FALSE}
+DT::datatable(
+  head(iris, 10),
+  fillContainer = FALSE, options = list(pageLength = 8)
+)
+```
+
+---
+
+# Some Tips
+
+- When you use the "Infinite Moon Reader" addin in RStudio, your R session will be blocked by default. You can click the red button on the right of the console to stop serving the slides, or use the _daemonized_ mode so that it does not block your R session. To do the latter, you can set the option
+
+    ```r
+    options(servr.daemon = TRUE)
+    ```
+    
+    in your current R session, or in `~/.Rprofile` so that it is applied to all future R sessions. I do the latter by myself.
+    
+    To know more about the web server, see the [**servr**](https://github.com/yihui/servr) package.
+
+--
+
+- Do not forget to try the `yolo` option of `xaringan::moon_reader`.
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        yolo: true
+    ```
+
+---
+
+# Some Tips
+
+- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay: 30000
+    ```
+
+--
+
+- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          countdown: 60000
+    ```
+
+    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
+
+---
+
+# Some Tips
+
+- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.name/xaringan/incremental.html) for examples.
+
+- The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#<<`;
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          highlightLines: true
+    ```
+
+    See examples on the next page.
+
+---
+
+# Some Tips
+
+
+.pull-left[
+An example using a leading `*`:
+
+    ```r
+    if (TRUE) {
+    ** message("Very important!")
+    }
+    ```
+Output:
+```r
+if (TRUE) {
+* message("Very important!")
+}
+```
+
+This is invalid R code, so it is a plain fenced code block that is not executed.
+]
+
+.pull-right[
+An example using `{{}}`:
+
+    `r ''````{r tidy=FALSE}
+    if (TRUE) {
+    *{{ message("Very important!") }}
+    }
+    ```
+Output:
+```{r tidy=FALSE}
+if (TRUE) {
+{{ message("Very important!") }}
+}
+```
+
+It is valid R code so you can run it. Note that `{{}}` can wrap an R expression of multiple lines.
+]
+
+---
+
+# Some Tips
+
+An example of using the trailing comment `#<<` to highlight lines:
+
+````markdown
+`r ''````{r tidy=FALSE}
+library(ggplot2)
+ggplot(mtcars) + 
+  aes(mpg, disp) + 
+  geom_point() +   #<<
+  geom_smooth()    #<<
+```
+````
+
+Output:
+
+```{r tidy=FALSE, eval=FALSE}
+library(ggplot2)
+ggplot(mtcars) + 
+  aes(mpg, disp) + 
+  geom_point() +   #<<
+  geom_smooth()    #<<
+```
+
+---
+
+# Some Tips
+
+- To make slides work offline, you need to download a copy of remark.js in advance, because **xaringan** uses the online version by default (see the help page `?xaringan::moon_reader`).
+
+- You can use `xaringan::summon_remark()` to download the latest or a specified version of remark.js. By default, it is downloaded to `libs/remark-latest.min.js`.
+
+- Then change the `chakra` option in YAML to point to this file, e.g.
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        chakra: libs/remark-latest.min.js
+    ```
+
+- If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
+
+---
+
+# Macros
+
+- remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1, arg2, ...]` or `![:macroName arg1, arg2, ...](this)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
+
+    ```js
+    remark.macros.scale = function (percentage) {
+      var url = this;
+      return '<img src="' + url + '" style="width: ' + percentage + '" />';
+    };
+    ```
+
+    Then the Markdown text
+
+    ```markdown
+    ![:scale 50%](image.jpg)
+    ```
+
+    will be translated to
+    
+    ```html
+    <img src="image.jpg" style="width: 50%" />
+    ```
+
+---
+
+# Macros (continued)
+
+- To insert macros in **xaringan** slides, you can use the option `beforeInit` under the option `nature`, e.g.,
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          beforeInit: "macros.js"
+    ```
+
+    You save your remark.js macros in the file `macros.js`.
+
+- The `beforeInit` option can be used to insert arbitrary JS code before `remark.create()`. Inserting macros is just one of its possible applications.
+
+---
+
+# CSS
+
+Among all options in `xaringan::moon_reader`, the most challenging but perhaps also the most rewarding one is `css`, because it allows you to customize the appearance of your slides using any CSS rules or hacks you know.
+
+You can see the default CSS file [here](https://github.com/yihui/xaringan/blob/master/inst/rmarkdown/templates/xaringan/resources/default.css). You can completely replace it with your own CSS files, or define new rules to override the default. See the help page `?xaringan::moon_reader` for more information.
+
+---
+
+# CSS
+
+For example, suppose you want to change the font for code from the default "Source Code Pro" to "Ubuntu Mono". You can create a CSS file named, say, `ubuntu-mono.css`:
+
+```css
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+```
+
+Then set the `css` option in the YAML metadata:
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: ["default", "ubuntu-mono.css"]
+```
+
+Here I assume `ubuntu-mono.css` is under the same directory as your Rmd.
+
+See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an example of using the [Fira Code](https://github.com/tonsky/FiraCode) font, which supports ligatures in program code.
+
+---
+
+# Themes
+
+Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
+
+```{r}
+names(xaringan:::list_css())
+```
+
+To use a theme, you can specify the `css` option as an array of CSS filenames (without the `.css` extensions), e.g.,
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+```
+
+If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.name/en/2017/10/xaringan-themes).
+
+---
+class: inverse, middle, center
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
+background-size: contain
+
+# Naruto
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# Sharingan
+
+The R package name **xaringan** was derived<sup>1</sup> from **Sharingan**, a dōjutsu in the Japanese anime _Naruto_ with two abilities:
+
+- the "Eye of Insight"
+
+- the "Eye of Hypnotism"
+
+I think a presentation is basically a way to communicate insights to the audience, and a great presentation may even "hypnotize" the audience.<sup>2,3</sup>
+
+.footnote[
+[1] In Chinese, the pronounciation of _X_ is _Sh_ /ʃ/ (as in _shrimp_). Now you should have a better idea of how to pronounce my last name _Xie_.
+
+[2] By comparison, bad presentations only put the audience to sleep.
+
+[3] Personally I find that setting background images for slides is a killer feature of remark.js. It is an effective way to bring visual impact into your presentations.
+]
+
+---
+
+# Naruto terminology
+
+The **xaringan** package borrowed a few terms from Naruto, such as
+
+- [Sharingan](http://naruto.wikia.com/wiki/Sharingan) (写輪眼; the package name)
+
+- The [moon reader](http://naruto.wikia.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
+
+- [Chakra](http://naruto.wikia.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
+
+- [Nature transformation](http://naruto.wikia.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
+
+- The [infinite moon reader](http://naruto.wikia.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
+
+- The [summoning technique](http://naruto.wikia.com/wiki/Summoning_Technique) (download remark.js from the web)
+
+You can click the links to know more about them if you want. The jutsu "Moon Reader" may seem a little evil, but that does not mean your slides are evil.
+
+---
+
+class: center
+
+# Hand seals (印)
+
+Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
+
+![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
+
+---
+
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+
+
+---
+title: Presentation on Vendor Management
+subtitle: "Vigilance awareness week lecture"
+author: Gopal Kumar, PED/RS
+institute: RDSO, Lucknow
+date: "`r Sys.Date()`" # date: "30th Oct 2022"
+fontsize: 10pt
+mathspec: true # for metropolis theme
+aspectratio: 43 # 169 # 16:9
+#classoption: handout
+output:
+ beamer_presentation:
+   theme: PaloAlto # Warsaw #CambridgeUS #AnnArbor #"Copenhagen"  
+   # AnnArbor, PaloAlto, CambridgeUS, Antibes, 
+   # %mytheamlist =AnnArbor   Antibes  Berkeley  CambridgeUS %Copenhagen Madrid  Warsaw
+   # JuanLesPins %Goettingen   Hannover  Marburg  PaloAlto Marburg 
+   # https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_theme.html
+   #theme: "metropolis" # special
+   colortheme: "dolphin" # crane # albatross # 
+   # %albatross(blue), beaver(red),crane(yellow),whale(blue),wolverine(yellow)
+   # https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_color.html
+   fonttheme: "structurebold"
+   # https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_font.html
+   latex_engine: xelatex # for metropolis theme
+   toc: true
+   slide_level: 2
+   keep_tex: true
+   # includes:
+   #    in_header: header.tex
+#logo: flowery.png #RDSO_Logo1.jpg #flowery.png
+#titlegraphic: dahlia.png
+#background-image: dahlia.png #RDSO_Logo1.jpg # works
+header-includes:
+  - \usepackage{fancyvrb}
+---
+
+# Introduction
+
+## What is Vendor Management
+
+### Make or buy decision
+
+- We outsource certain products or services as partner vendors can offer better service/product or a better economy.
+- Businesses rarely have all the resources to execute projects and fulfill business objectives on their own. 
+
+### Vendor is a partner
+- Vendor gives better technology or service /cost economies
+- must be nurtured
+- within the Government rules of constitutional equality among persons/business entities 
+
+## Vendor management : conception to disposal
+
+### Vendor Management 
+
+- Complete process of acquiring and managing suppliers 
+- with different points of contact, rates, and contract terms 
+- in complex and highly dynamic buyer-vendor ecosystem.
+
+
+### General key points in Vendor selection
+
+- Select vendors that present greatest value  at the least viable expenditure.
+- Mission-critical vendor associate for their concerns and relationship.
+- Building long term trust and mutual support is Important
+- Needs to fit into overall delivery of service and corporate strategy 
+- Understand vendor’s business model as bottom line for Vendor is and important and cost and delivery pressure on them will likely see a commensurate reduction in service/product quality.
+
+
+# Vendor development in Railways
+
+### Vendor development in Railways 
+
+- Most aspect of vendor management handled by Stores department 
+- Item demands, technical requirements and usage feedback performance report by user departments
+
+### For safety critical items - vendor pre approval
+
+- For safety and critical items, vendors are pre-approved by RDSO/PU
+- RDSO  approve vendors for for items assigned by Railway Board
+- RDSO vendor development and management is only a limited part of entire vendor management 
+
+
+# RDSO vendor development system 
+
+The presentation will cover few key points of `RDSO vendor registration process`
+
+
+### RDSO vendor management activities
+
+1. Item identified and assigned by Railway Board 
+2. RDSO develop Specification including STR and indicative costing
+3. RDSO Solicit vendors interest
+4. Entire Vendor Application processing on RDSO UVAM portal at ireps.gov.in
+5. Undertake Inspection of classified Category-II critical items 
+6. Evaluate Vendor performance for up-gradation and corrective actions
+6. Failure reporting monitoring and regular and special audits 
+
+## RDSO Vendor Development process and monitoring
+
+### Specification development
+
+- RDSO follow the basic principles of WTO-TBT ‘Code of Good Practice for the Preparation, Adoption and Application of Standards’. 
+
+- The six principles of standardisation:
+     a) Transparency 
+     b) Openness 
+     c) Impartiality and Consensus 
+     d) Effectiveness and Relevance
+     e) Coherence 
+     f) Development Dimension
+
+
+## Standards
+
+
+### What are Standards
+> Document established by consensus amongst various stakeholders and provides for common and repeated use, rules, guidelines or characteristics for specific products or services and is aimed at achieving optimum degree of order in a given context. 
+These could be specifications, procedures and guidelines to ensure that products, services and systems are safe, consistent and reliable. 
+
+
+### Development of Specifications 
+- Product conceptualisation  
+- Overall functional requirement specifications of the product
+- Who can make it best - ourself or other person (vendor)
+- Mostly, Vendor specifications made in consultation with stakeholders for optimum cost and functionality 
+
+
+## Standards development process of RDSO
+
+### Justificatons for New specifications/STR
+a) Why the need for creation of new Standard has arisen? 
+b) What is the existing Vendor base and the action plan to develop new vendors?
+c) What will be the Pricing of the item? (Some indicative estimation of pricing of the item shall be indicated in note for information) 
+
+### Changes in the Existing RDSO Standards
+Changes of raw material / process / testing /procedures / guidelines or validation of product or services. 
+
+a) Why the need for Change has arisen?
+b) parameters likely to be affected?
+c) Effect of change on the existing vendor base?
+d) Effect of the change on the pricing of the item.
+e) Effect on service life of component/equipment.
+f) Mechanisms for effective monitoring those parameters
+g) Any other remarks 
+
+
+
+# RDSO Vendor registraion basics and process
+
+- RDSO only register OEMs 
+- No Traders or resellers permitted. 
+- Must have ISO 9000 certification for manufacturing the item classes
+- Overseas OEM's may appoint Indian agent but approval to OEM only.
+
+
+Registration brief follows ->
+
+
+## Prerequisite for application
+
+### RDSO Prerequisite for application (ISO Para 4.3 )
+
+All applicants shall possess the following pre-requisites
+
+- ISO9001 Certification (ISO para 4.3.1 )for manufacture of same/similar item at his works address
+- ISO certificate agency accreditation verified at www.iaf.nu 
+- Digital Signatures (ISO para 4.3.2  but optional? )
+
+
+## Mandatory Declarations by Vendors (ISO para 4.2 )
+- Document as per ISO apex QO-F-8.1-7 ‘List of documents to be sought from the vendor at the time of fresh registration and Annexures/Forms’
+
+-  Declaration for classifying Allied / Sister Concerns Declaration shall be submitted in the format as per Annexure A-4 & Annexures-1&2 of document QO-F-8.1-7 (ISO 4.2.1)
+- Undertaking to be submitted by the applicant in case of change of status 
+disclose to RDSO, any changes in the status i.e. name, address, work place etc., ( Annexure A-3 of document QO-F-8.1-7 )  (ISO 4.2.2 )
+
+- Undertaking for not changing M & P (Annexure A-3 of document no. QO-F-8.1- 7) without intimation to RDSO (fax/email even for repairs) (ISO 4.2.3 )
+
+## Mandatory Declarations by Vendors (ISO para 4.2 ) cont..
+
+- documents digitally  signed by the authorized representative plus  authorization letter (as per Ann A-5 of document no. QO-F-8.1-7) from  firms authorised signatory ( Director/Proprietor/Partner on behalf of the firm. 
+
+- Charges paid by all on UVAM Module of IREPS website.
+
+
+## Registration of Foreign Firms
+ 
+- Registration of Foreign Firms ( Para 4.2.4)
+
+- Focus  on Make in India
+
+
+ 
+# Vendor Application Processing
+
+- QO-D-8.1-6 Vendor Application Processing
+ 
+- Only for items allotted to RDSO by Railway Board/ D.G., RDSO
+ 
+- Safekeeping of documents with IPR’s (para 4.1 ) down loaded. ( Hard copies can be kept in separate files by the respective Directorate. (Is it required with UVAM?)
+ 
+## Entity change while applicaition processing
+
+(ISO para - 4.2 ) Not allowed but if unavoidable, for change of Ownership with name/without name, Merger, Take Over, Acquisition, Major Changes in Share Holding/ Directors of company, change in type of firm from Proprietorship/Partnership/Pvt. Limited etc. the same application can be processed. 
+
+- no change in Work Address, Machinery & Plant, Bill of Material, Process defined in QAP etc. affecting the quality of product. 
+
+- All  revised declarations of QO-F-8.1-7 “List of documents to be sought from the vendor ” taken
+
+- For complex changes, firm to apply fresh.
+- Change of address of plant/works allowed till no visit made by RDSO to vendor’s works place.
+ 
+# Application Screening & clarifications
+
+##  Application Screening & clarifications (ISO para 4.3)
+
+### Scrutinized in detail for 
+
+- adequacy in respect of the information sought.
+- Documents signed by an authorized signatory.
+- Inadequacy pin pointed and communicated to firm on line/ email and Vendor to submit compliance online. 
+
+##  Screening for Sister / Allied concern (para 4.3.1)
+The self-declaration received vide  rec-ref-1 QO-F-8.1-7 be examined 
+
+### Definition of Allied / Sister concern 
+- Section 40A(2)(b) of Income-Tax Act  and Section 370-1(B) of Companies’ Act  and further modified to suit our requirements is as under -
+- 4.3.1.1 Proprietary Firms - All the firms owned by same person are allied / sister concerns.
+- 4.3.1.2 Partnership Firms -
+All firms having the same set of partners.
+ If one or more partners with over 20% profit sharing ratio of 20%
+- 4.3.1.3 Companies - 
+ + Companies having – “majority” of Directors common
+ + Common shareholder having 1/3rd shares or more. 
+ + One or more Directors or close relatives (degree defined) shareholding over  1/3rd 
+- 4.3.1.4 Other Conditions - firms/companies operating from same office or same works.
+
+---
+
+### Undertaking for legal formalities and statutory compliances for vendor registration
+
+-  Undertaking as per Annexure A-3 of document QO-F-8.1-7 abiding with all legal formalities and statutory compliances  and produce when demanded. (Para 4.3.2.1) 
+
+- Deficiency/ non-compliance at any stage  can result delisting even while the firm is listed on the RDSO’s vendor list. 
+
+
+# Technical Screening (Para 4.3.3 of ISO)
+
+###  Technical Screening 
+- A technical screening on the basis of information regarding infrastructure & manufacturing practices, QAP etc., firm can be considered for a visit for CCA
+
+- Outsourcing of some minor activities at ED/PED  and incorporated in QAP and got to be verified during assessment of the firm. 
+
+- Outsourcing to any sister concern permitted, subject to compliance of specs/ STR/ ISO etc. by the sister concern.  ( covered in  QAP).  
+- Non-compliance of any issue in sister concern, action against approved vendor.
+- RDSO officials shall have to visit all outsourced work-places of sister concern to certify compliance before approval 
+- For overseas firms and their workplaces,  Spl. DG/VD’s  dispensation can be taken on case to case basis giving justification. 
+
+## Manufacturing facilies at multiple location and outsourcing
+
+### Manufacturing facilies at multiple location
+
+Preferably manufacturing and testing facilities covered under STR at one premises. Facilities spread in more than one place provided they are under the same ownership with same name and  activities are clearly spelt out in the QAP. ( termed as Ancillary units). (Para 4.3.3.3 ) 
+
+
+## Acceptance of application for CCA
+
+- Acceptance of application after scrutiny of the documents (status on the UVAM Module) (Para 4.4 )
+- Capacity/ capability assessment even if minor deficiencies but deficiencies have to be set right before approval (CCA).
+- Major deficiencies to  be uploaded on UVAM firm will get one month time to make good the deficiencies.
+- On Merit may be permitted maximum of three Months before the closure 
+- Nevertheless, know that directorate head responsible for all delays byeond 2 months
+
+## Rejection of the Application
+
+- Rejection of the Application  shall be informed through IREPS, UVAM Module about the deficiencies. The firm will have to apply afresh. (Para 4.5 )
+
+- In case approved vendors <5, no registration fee  if reapplication done within six months ( a onetime exception). 
+
+## Physical visit to firm's permises for CCA
+
+- Visit to firm’s premises by RDSO official for STR  and CCA 
+- Digitally signed submitted documents be verified with  originals.
+- Legal documents duly verified and all original taken to RDSO.
+- If visit waived off, then RDSO to collect documents from  firm 
+ 
+- Only two postponements else case be closed
+- Alternative Vendor remote inspection feasibility for STR /CCA verification by remote means can also be used.
+- For overseas suppliers - through RA Berlin/DRA Paris/London or other IR official abroad.  Spl. DG/VD may approve case basis specific arrangement 
+
+
+# Capacity cum Capability Assessment (CCA) Report
+
+## CCA Report
+- CCA Report in standard format (document no. QO-F-8.1-8) in digitally signed pdf through UVAM with his remarks (Para 4.7 )
+
+- Once deficiency found during CCA,  case be CLOSED through UVAM.
+
+- Re Registration within  6 months, the case processed from the stage where it was closed (as a onetime exception) 
+
+
+
+## Approval by the ED/PED controlling the item (Para 4.8 )
+
+On Successful verification for documents and CCA 
+ such Firms placed as Developmental Vendors for 24 months, with a check note subjected to:
+ 1. Technical Clearance of Test Samples/Prototype by the RDSO.
+ 2. Successful Field Trials of the Specified Quantity 
+
+### Developmental Vendors  Orders quantity
+- Developmental Vendors item purchase ( Board’s letter  99/RS(G)/709/1/Pt. dated 13.01.2015 para (3 A ii) ) permits  qty. ordered on developmental vendors in and outside the NPQ
+- Board’s letter No: 2001/ RS(G)/779/7/Pt.2 dated 06.11.2018.
+Before initiating the regular supplies  - Technical Clearance of Prototype/Test sample and successful field trials as specified for item by RDSO is to be completed. 
+
+--- 
+
+### Vendor initiative sample/prototype testing
+
+-  Vendors can approach to the RDSO for sample/prototype testing, irrespective of whether the vendor gets the order from Railway units or not in order to expedite the approval process. 
+
+- Check notes removed after Technical clearance of Test Samples/ Prototype/ Successful Field Trials of the Specified Quantity
+
+- If Technical clearance and  field trials takes more than 24 months,  ED to decide whether to continue the firm in the list of Developmental Vendor with check note as per procedure.
+
+- If Vendor gets orders and supply done/under process, the extra validity upto  two years.
+
+## QAP 
+
+### Approved and digitally signed copy of QAP
+4.12 Approved and digitally signed copy of QAP with work address for the approved product to be sent to the vendor for implementation, duly stamped as ‘approved’. 
+
+### Review / Up-gradation of QAP
+
+4.13 Review / Up-gradation of QAP by > Jt. Director of the field unit in the light of fresh technical information received from Design Directorate & Information Received after field trial from the Users. 
+
+# Approval of Vendor 
+
+## Communication of Vendor approval throuth UVAM
+
+-  Communication of approval through a letter generated through ‘UVAM” and status of automatically updated in respective ‘List of Vendors for Development Orders’/ ‘List of Approved Vendors’ on ‘UVAM” portal.  (4.14)
+
+## Relaxation of Vendor registration requirements (QO-D-8.1-7 )
+
+- 4.1 Relaxation for vendors with Railway PU
+ Item transferred from PU shall remain same but  undertaking in. QO-F-8.1-7 be taken
+ 
+- Relaxation as provided under product development directive in (ref-11) (see ISO 4.2 )
+
+-  Procedure for approval of firms/vendors given IPR by the principal IPR holder for manufacture in India as stated in para  4.3
+
+-  Firms/vendors holding IPR of a proven product or firms/vendors duly authorized to use the same by the principal IPR holder (for manufacture in India inducted into the Approved List after capacity, capability assessment including compliance to QAP & STR for the given product.  (4.11.1.2 of QO-D-8.1-6.)
+
+
+## Cross approvals 
+
+-  Applicants registered with reputed units like CPSU/Metro/Power Grid / Ordinance Factories / DFCCL,  for same item be done. (Para 4.4)
+
+- Para-wise compliance of specification and deviation if any with mitigation measure/ alternate provision. 
+
+ - May waive prototype requirements and/or trial requirements in addition to CCA and the vendor can be directly placed in developmental vendor category. 
+
+- In deserving cases, after recording reasons, especially if developed vendors are less than three and such vendor  considered capable based on satisfactory supply performance in such PSUs. 
+- Cross approval policy may be followed where it exists/applicable. 
+
+
+
+# Quality Audit of Approved Vendor
+
+### QO-D-8.1-13 Quality Audit of Approved Vendor
+- To ensure the quality of the material supplied by the firms 
+checks/Quality audit on their QAM including M&P, man-power, sources and their own internal quality checks to ensure they are in place as per conditions laid down while approving the firm. 
+
+- 4.1 Periodicity between 3 to 5 years from last quality audit. Do it in 3 year 
+
+- Quality Audit at officer’s level. ED / PED may depute supervisors with the approval of Spl. DG/VD citing specific reasons why quality audit can’t be postponed 
+
+- Can follow special remote procedure if accepted by ED
+
+- 4.2.1 Quality Audit Format in document no. QO-F-8.1 -9  to ED
+
+## Changes in vendor facilites
+
+- Vendor responsible to immediately inform full technical details of any changes about Bill of Material, plant & machinery and Quality Assurance Plan  (para 4.3 )
+- In case the approved vendor fails to comply with the above provision, his name may be deleted/temporarily withdrawn 
+
+
+
+
+# Vendor Monitoring and performance evaluation
+
+## Performance Feedback reports from user Railways
+
+1. RDSO web portal hosted on railnet website 10.100.12.19
+2. Feed back from Railways (Discouraged as subjective)
+3. Online failure reporting work flow from Freight Maintenance Management (FMM)/CMM/WMS (better system to be formalised)
+
+## Evaluation of performance (para 4.4 )
+- Based on feedback from user as available in the directorate during quality audit. 
+- Refusal to Quality Audit Date of Quality Audit intimated to firm through email/fax at least 30 days in advance. (Para 4.5) 
+- In case date not accepted, next and final date after 30 days intimation to firm 
+- In case approved vendor refuses to quality audit or does not allow RDSO to perform quality audit, vendor temporarily delisted till  quality audit is successfully done.
+
+## Quality and performance deterioration
+
+Deterioration of performance & out of turn Quality Audit (Para 4.6 )
+
+- ED decide out of turn quality audit for further continuance of approval/ temporary delisting/ delisting.
+- ED/ PED may decide to  stop the inspection temporarily considering seriousness 
+- Audit Report communicated and  vendor status be updated on website (Para 4.7 )
+- Discrepancies during Quality Audits be taken up with show cause notice to comply deficiencies , and implementing CAPA within 30 days. This shall be verified. (Para 4.8)
+
+- If the firm fails to comply, firm be temporary delisted 
+
+
+## Inspections ( Suggestions) 
+
+- Inspection - Adds no values to quality, waste of resource but essential under mistrusted vendors
+
+- Better develop strong and trusted vendors with lasting relationships with suppliers.
+- Firms WTC may be considered depending on robustness of firms QAP and mitigation activities
+
+- Private sector insists on process monitoring from its manufacturers. Instead of checking a complete lot and then rejecting it, we need to look into that aspect. That brings quality and eases inspection for the supplier
+
+## Quality key items to consider (suggestions)
+
+### 7 QC tools -  Prof. Ishikawa, Tokyo Univ 
+Solves about ~ 95% of problems 
+
+1. Pareto Chart
+2. Run Chart - run-sequence plot
+3. Histogram - underlying distribution - process capability
+4. Cause-and-effect diagram - Ishikawa fishbone diagram : root causes effect into six Ms: measurement, material, machine, method, manpower and mother nature.  Brainstorming "why does this happen?" 
+5. Scatter plots : X-Y graph data relationship but no  causation
+6. Control charts : processes variation from specs.( x-bar ,  R , S , c , u , np and p chart)
+7. Check Sheets : defect concentration diagram, structured forms
+
+Vendors following above likely to have robust internal quality control system
+
+---
+
+### Vendor supplies performance monitoring: 
+
+- Warranty portal and in future FMM/CMM/WMS in mech deptt 
+- Reliability analyses and life tables statistical analysis with censured data 
+- Consider Total effective life cycle cost
+- Good vendors are assets  and proved values to the business
+
+## Few Suggestions for discussions
+
+### Documentation and legal compliances 
+- Based on certificate from statutory charted accountant
+- All CCA compliance by chartered engineering firms
+- RDSO can always verify and cross check certificates
+- like system of Advocates in Court, CA for company accounts, CHA for export
+
+- Ways to incentivise vendors meeting better process capabilities (Cp)
+
+
+## Thank you very much
+### Thank you very much
+Thank you
